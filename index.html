@@ -14,7 +14,7 @@
             <div class="container has-text-centered">
                 <!-- <div class="column is-4 is-offset-4"> -->
                 <div class="column">
-                    <h3 class="title has-text-black">出欠システム</h3>
+                    <h3 class="title has-text-black">パソコン部出欠システム</h3>
                     <hr class="login-hr">
                     <p class="subtitle has-text-black">IDを入力して出席登録を実行してください。</p>
                     <div class="box">
@@ -24,13 +24,14 @@
                         <form v-if="!isClicked" onsubmit="return false;">
                             <div class="field">
                                 <div class="control">
+                                    <label for="id">ID</label>
                                     <input v-model="id" class="input is-large" type="text" placeholder="IDを入力してください"
                                         autofocus="">
                                 </div>
                             </div>
 
                             <button style="margin-top: 50px;" type="button"
-                                class="button is-block is-info is-large is-fullwidth" @click="attend()">出席登録 <i
+                                class="button is-block is-info is-large is-fullwidth" @click="attend()">出席登録する <i
                                     class="fa fa-sign-in" aria-hidden="true"></i></button>
                         </form>
                         <div v-if="isClicked" class="loader-wrapper">
@@ -50,8 +51,6 @@
         el: "#app",
         data: {
             id: null,
-            lat: 0,
-            lon: 0,
             isClicked: false,
         },
         methods: {
@@ -59,23 +58,14 @@
                 vueThis = this
                 this.isClicked = true
 
-                let apiUrl = 'https://script.google.com/macros/s/AKfycbx76O2c1bmLtQcuuUUGyeEP9fkmAaGH2ZM9_42F9qOfMEaPnfjxkQtsuo8wPU18PG-XtQ/exec'
-                axios.get(`${apiUrl}?id=${this.id}&lat=${this.lat}&lon=${this.lon}`).then(function (response) {
+                let apiUrl = 'https://script.google.com/macros/s/AKfycbzzCXWZjEJeDSQ4AZdtIsaD2YOtgFHGbUoTmqa3V0XPr5pp6zWEmYr1SlBhYNja2_fChQ/exec'
+                axios.get(`${apiUrl}?id=${this.id}`).then(function (response) {
                     console.log(response);
                     alert(response.data.msg)
                     vueThis.isClicked = false
                 })
             },
         },
-        mounted() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-
-                    this.lat = position.coords.latitude
-                    this.lon = position.coords.longitude
-                });
-            }
-        }
     })
 
 
