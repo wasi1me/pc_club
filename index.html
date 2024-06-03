@@ -29,6 +29,9 @@
                                     <label>ID</label>
                                     <input v-model="id" class="input is-large" type="text" placeholder="IDを入力してください"
                                         autofocus="">
+                                    <label>パスワード</label>
+                                    <input v-model="password" class="input is-large" type="password" placeholder="パスワードを入力してください"
+                                        autofocus="">
                                 </div>
                             </div>
 
@@ -61,7 +64,7 @@
                 this.isClicked = true
 
                 let apiUrl = 'https://script.google.com/macros/s/AKfycbzzCXWZjEJeDSQ4AZdtIsaD2YOtgFHGbUoTmqa3V0XPr5pp6zWEmYr1SlBhYNja2_fChQ/exec'
-                axios.get(`${apiUrl}?id=${this.id}`).then(function (response) {
+                axios.get(`${apiUrl}?id=${this.id}`,`${apiUrl}?id=${this.password}`).then(function (response) {
                     console.log(response);
                     alert(response.data.msg)
                     vueThis.isClicked = false
