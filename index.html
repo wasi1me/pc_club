@@ -30,7 +30,7 @@
                                     <input v-model="id" class="input is-large" type="text" placeholder="IDを入力してください"
                                         autofocus="">
                                     <label>パスワード</label>
-                                    <input v-model="password" class="input is-large" type="password" placeholder="パスワードを入力してください"
+                                    <input v-model="password" class="input is-large" type="password" placeholder="paパスワードを入力してください"
                                         autofocus="">
                                 </div>
                             </div>
@@ -56,6 +56,7 @@
         el: "#app",
         data: {
             id: null,
+            password: null,
             isClicked: false,
         },
         methods: {
