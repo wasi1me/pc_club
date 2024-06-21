@@ -34,7 +34,7 @@
                             <div class="field">
                                 <div class="control">
                                     <label>パスワード</label>
-                                    <input v-model="password" class="input is-large" type="password" placeholder="パスワード入力してください"
+                                    <input v-model="password" class="input is-large" type="password" placeholder="パスワードを入力してください"
                                         autofocus="">
                                 </div>
                             </div>
@@ -68,7 +68,7 @@
                 vueThis = this
                 this.isClicked = true
 
-                let apiUrl = 'https://script.google.com/macros/s/AKfycby8FmwjLGpfZCGzecsdlPyU0zD9q_3e5OQEQGCSxQsfwq16M9U2F_joVx5hD4xD5IgGWg/exec'
+                let apiUrl = 'https://script.google.com/macros/s/AKfycbyN1d9PRAI9YhkavLnBgK5lDHRmjAzVwOS9fnya6txiZU4HB2IseybfKu9vxX4Nt_Aqgg/exec'
                 axios.get(`${apiUrl}?id=${this.id}&password=${this.password}`).then(function (response) {
                     console.log(response);
                     alert(response.data.msg)
