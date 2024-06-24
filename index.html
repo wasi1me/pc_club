@@ -68,7 +68,7 @@
                 vueThis = this
                 this.isClicked = true
 
-                let apiUrl = 'https://script.google.com/macros/s/AKfycbzZrTU_4joggxv7YCKafjBb9xN9EthdB-wVrPxMLdjsSZkZpvA6t3513jcgnxQil74reA/exec'
+                let apiUrl = 'https://script.google.com/macros/s/AKfycbxtTOVNDUK8gxaNijMOCLSuxQc8f1y5h96ef-_oBiJuZNkdhiv3bS8m3aXRoixDkngXUg/exec'
                 axios.get(`${apiUrl}?id=${this.id}&password=${this.password}`).then(function (response) {
                     console.log(response);
                     alert(response.data.msg)
